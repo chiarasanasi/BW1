@@ -1,12 +1,14 @@
 /*  Stili generali */
 body {
-    background: linear-gradient(135deg, #0c0e30, #4b1b5b);
+    background: url("/assets/images/bg.jpg") no-repeat center center fixed;
+    background-size: cover;
     color: white;
+    font-family: 'Poppins', sans-serif;
     text-align: center;
     height: 100vh;
     margin: 0;
     padding: 0;
-    display: table; 
+    display: table;
     width: 100%;
 }
 
