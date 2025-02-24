@@ -1,0 +1,105 @@
+/*  Stili generali */
+body {
+    background: linear-gradient(135deg, #0c0e30, #4b1b5b);
+    color: white;
+    text-align: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: table; 
+    width: 100%;
+}
+
+/* Contenitore centrale */
+.container {
+    display: table-cell;
+    vertical-align: middle; 
+    width: 60%;
+    margin: 0 auto;
+    padding: 6em;
+}
+
+/* Logo in alto a sinistra */
+.logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 140px;
+    padding: 3em;
+}
+
+/*  Titoli e testo */
+h2 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 18px;
+    margin: 15px 0;
+}
+
+.rating-container {
+    display: inline-block;
+    margin: 30px 0;
+}
+
+.star {
+    width: 50px;
+    height: 50px;
+    background-image: url("/assets/images/star.svg");
+    background-size: cover;
+    cursor: pointer;
+    filter: grayscale(100%) brightness(50%);
+    transition: 0.3s ease-in-out;
+    display: inline-block;
+}
+
+.star.active,
+.star:hover,
+.star:hover ~ .star {
+    filter: grayscale(0%) brightness(100%);
+}
+
+/* Input commento */
+input {
+    width: 90%;
+    padding: 15px;
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid #ff0099;
+    color: white;
+    outline: none;
+    font-size: 18px;
+    margin-top: 40px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Pulsante More Info */
+button {
+    display: block;
+    margin: 50px auto 0 auto; 
+    padding: 15px 40px;
+    font-size: 18px;
+    font-weight: 600;
+    color: black;
+    background: cyan;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.3s;
+    box-shadow: 0px 0px 20px rgba(0, 255, 255, 0.8);
+}
+
+button:hover {
+    box-shadow: 0px 0px 30px rgba(0, 255, 255, 1);
+}
+
+
