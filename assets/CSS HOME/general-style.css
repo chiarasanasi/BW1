@@ -1,0 +1,13 @@
+body {
+  background-image: url(../images/bg.jpg);
+  margin: 40px 20%;
+  color: white;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 500px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.logo {
+  width: 100px;
+}
