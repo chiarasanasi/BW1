@@ -1,0 +1,47 @@
+h1 {
+  font-size: 5em;
+  font-weight: 500;
+}
+h2 {
+  color: #c2128d;
+}
+main div {
+  margin-right: 300px;
+}
+p {
+  font-size: 1.3em;
+  margin-right: 275px;
+}
+ul {
+  padding-inline-start: 25px;
+}
+li {
+  font-size: 1.3em;
+}
+footer {
+  margin-top: 70px;
+}
+footer div {
+  float: left;
+  padding: 15px 0;
+}
+input {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin: 0 5px 0px 0px;
+  cursor: pointer;
+}
+
+button {
+  float: right;
+  background-color: #00eaff;
+  color: #000;
+  padding: 15px 30px;
+  width: 180px;
+  font-size: 1.1em;
+  font-weight: 800;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0px 0px 17px 5px #6be7fc;
+}
