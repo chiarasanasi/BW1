@@ -7,25 +7,35 @@ let selectedRating = 0;
 
 // Funzione per aggiornare l'aspetto delle stelle
 function updateStars(rating) {
-  stars.forEach((star, index) => {
-    star.classList.toggle("active", index < rating);
-  });
+  for (let i = 0; i < stars.length; i++) {
+    if (i < rating) {
+      stars[i].classList.add("active"); // Aggiunge la classe "active"
+    } else {
+      stars[i].classList.remove("active"); // Rimuove la classe "active"
+    }
+  }
 }
 
 // Evento click per selezionare il rating
-stars.forEach((star, index) => {
-  star.addEventListener("click", () => {
-    selectedRating = index + 1;
+for (let i = 0; i < stars.length; i++) {
+  stars[i].addEventListener("click", function () {
+    selectedRating = i + 1; // Imposta il rating basato sulla stella cliccata
     updateStars(selectedRating);
   });
 
   // Anteprima stelle al passaggio del mouse
-  star.addEventListener("mouseover", () => updateStars(index + 1));
-  star.addEventListener("mouseout", () => updateStars(selectedRating));
-});
+  stars[i].addEventListener("mouseover", function () {
+    updateStars(i + 1);
+  });
+
+  // Ripristina la selezione quando il mouse esce
+  stars[i].addEventListener("mouseout", function () {
+    updateStars(selectedRating);
+  });
+}
 
 // Invio feedback via email
-submitBtn.addEventListener("click", () => {
+submitBtn.addEventListener("click", function () {
   const comment = commentInput.value.trim();
 
   if (selectedRating === 0) {
