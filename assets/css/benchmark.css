@@ -1,24 +1,25 @@
 body {
-  color: whitesmoke;
   background-image: url(../images/bg.jpg);
+  margin: 40px 20%;
+  color: white;
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
+
+  font-family: Arial, Helvetica, sans-serif;
 }
 .logo {
-  inline-size: 10rem;
-  padding: 3rem;
-  margin-left: 4rem;
+  width: 100px;
 }
 
 main {
   text-align: center;
+  margin-top: 80px;
 }
 
 #question p {
-  font-size: 4.5rem;
+  font-size: 2.5em;
   font-family: "Outfit", sans-serif;
-  margin-bottom: 5%;
-  margin-left: 15%;
-  margin-right: 15%;
 }
 strong {
   font-weight: bold;
@@ -27,15 +28,15 @@ strong {
 #answers button {
   cursor: pointer;
   font-family: "Inter", sans-serif;
-  font-size: 20px;
+  font-size: 1em;
   font-weight: 750;
   color: whitesmoke;
   margin: 1%;
   padding: 10px 20px;
   box-sizing: border-box;
   border-radius: 50px 50px;
-  width: 29rem;
-  height: 90px;
+  width: 400px;
+  height: 60px;
   text-align: center;
   background-color: rgb(128, 128, 128, 0.1);
   cursor: pointer;
@@ -72,7 +73,6 @@ strong {
 }
 footer {
   text-align: center;
-  padding-bottom: 5rem;
 }
 
 footer p {
@@ -80,8 +80,6 @@ footer p {
   font-size: 25px;
   font-family: "Outfit", sans-serif;
   letter-spacing: 2px;
-  margin-top: 100px;
-  padding-bottom: 2rem;
 }
 
 footer span {
