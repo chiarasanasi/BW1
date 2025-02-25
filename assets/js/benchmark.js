@@ -145,7 +145,7 @@ function loadQuestion() {
   document.getElementById("question").querySelector("p").innerHTML =
     currentQuestion.question;
 
-  document.querySelectorAll(".singleAnswer")[0].innerText =
+  /*document.querySelectorAll(".singleAnswer")[0].innerText =
     currentQuestion.correct_answer;
 
   let i = 1;
@@ -154,6 +154,12 @@ function loadQuestion() {
       document.querySelectorAll(".singleAnswer")[i].innerText = answer;
       i++;
     }
+  });*/
+
+  // Così strutturato il codice assegna la risposta corretta sempre al primo button. Ho risolto così ---Felice
+  const answerOptions = document.querySelectorAll(".singleAnswer");
+  shuffledAnswers.forEach((answer, i) => {
+    answerOptions[i].innerText = answer;
   });
 
   document.getElementById("questionNumber").innerHTML = `QUESTION ${
