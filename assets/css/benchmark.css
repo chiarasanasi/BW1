@@ -96,3 +96,44 @@ footer span {
 .singleAnswer {
   vertical-align: top;
 }
+
+/* CSS TIMER */
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#countdown {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 4rem;
+}
+
+#countdown div {
+  justify-items: center;
+  position: absolute;
+}
+
+#donuts-countdown {
+  max-width: 150px;
+  max-height: 150px;
+}
+
+.second-remaining {
+  font-family: "Montserrat";
+  color: white;
+  font-size: 8px;
+  margin: 0;
+  padding: 0;
+}
+
+#number {
+  font-family: "Montserrat";
+  color: white;
+  font-size: 40px;
+  margin: 0;
+  padding: 0;
+}
