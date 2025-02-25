@@ -14,14 +14,14 @@
     </header>
     <main>
       <div class="container">
-        <div>
+        <div class="results">
           <h1>Results</h1>
           <p>The summary of your answers:</p>
         </div>
         <div>
           <div>
             <div id="pie-chart">
-              <div>
+              <div class="congratulations">
                 <h3>Congratulations!</h3>
                 <h4 id="special-text">You passed the exam.</h4>
                 <p>
@@ -32,11 +32,15 @@
             </div>
           </div>
           <!-- il contenuto dovra essere aggiornato con js in maniera dinamica in base alle risposte -->
-          <aside>
-            <p id="correct">Correct 66.7% 4/6 questions</p>
+          <aside id="left-aside">
+            <p id="correct">Correct</p>
+            <span class="percentuale"><strong>66.7%</strong></span>
+            <span>4/6 questions</span>
           </aside>
-          <aside>
-            <p id="wrong">Wrong 33.3% 2/6 questions</p>
+          <aside id="right-aside">
+            <p id="wrong">Wrong</p>
+            <span class="percentuale"><strong>33,3%</strong></span>
+            <span>2/6 questions</span>
           </aside>
         </div>
         <div id="special-button-container">
