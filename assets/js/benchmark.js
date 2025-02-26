@@ -1,13 +1,13 @@
-const buttons = document.querySelectorAll(".singleAnswer");
-console.log(buttons);
+const buttons = document.querySelectorAll(".singleAnswer")
+console.log(buttons)
 
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
-    buttons.forEach((btn) => (btn.style.backgroundColor = ""));
-    button.style.backgroundColor = "#D20094";
-  });
+    buttons.forEach((btn) => (btn.style.backgroundColor = ""))
+    button.style.backgroundColor = "#D20094"
+  })
   // console.log(buttons);
-});
+})
 
 const quiz = {
   response_code: 0,
@@ -130,83 +130,175 @@ const quiz = {
       incorrect_answers: ["Python", "C", "Jakarta"],
     },
   ],
-};
-let quizIndex = 0;
+}
+let quizIndex = 0
 
 function loadQuestion() {
-  const currentQuestion = quiz.results[quizIndex];
+  const currentQuestion = quiz.results[quizIndex]
   const allAnswers = [
     currentQuestion.correct_answer,
     ...currentQuestion.incorrect_answers,
-  ];
+  ]
 
-  const shuffledAnswers = allAnswers.sort(() => Math.random() - 0.5);
+  const shuffledAnswers = allAnswers.sort(() => Math.random() - 0.5)
 
   document.getElementById("question").querySelector("p").innerHTML =
-    currentQuestion.question;
+    currentQuestion.question
 
   /*document.querySelectorAll(".singleAnswer")[0].innerText =
-    currentQuestion.correct_answer;
+    currentQuestion.correct_answer
 
-  let i = 1;
+  let i = 1
   shuffledAnswers.forEach((answer) => {
     if (answer !== currentQuestion.correct_answer) {
-      document.querySelectorAll(".singleAnswer")[i].innerText = answer;
-      i++;
+      document.querySelectorAll(".singleAnswer")[i].innerText = answer
+      i++
     }
   });*/
 
   // Così strutturato il codice assegna la risposta corretta sempre al primo button. Ho risolto così ---Felice
-  const answerOptions = document.querySelectorAll(".singleAnswer");
+  const answerOptions = document.querySelectorAll(".singleAnswer")
   shuffledAnswers.forEach((answer, i) => {
-    answerOptions[i].innerText = answer;
-  });
+    answerOptions[i].innerText = answer
+  })
 
   document.getElementById("questionNumber").innerHTML = `QUESTION ${
     quizIndex + 1
-  } <span>/10</span>`;
+  } <span>/10</span>`
   //questionNumberElement.style.color = "rgb(210, 0, 148)";
 }
-loadQuestion();
+loadQuestion()
 function verifyAnswer() {
-  const currentQuestion = quiz.results[quizIndex];
-  let greenAnswer = currentQuestion.correct_answer;
+  const currentQuestion = quiz.results[quizIndex]
+  let greenAnswer = currentQuestion.correct_answer
   buttons.forEach((button) => {
     if (button.style.backgroundColor === "rgb(210, 0, 148)") {
-      console.log(button.innerText);
+      console.log(button.innerText)
       if (button.innerText === greenAnswer) {
-        button.id = "positive";
+        button.id = "positive"
       } else {
-        button.id = "negative";
+        button.id = "negative"
       }
     } else {
-      button.id = "answer";
+      button.id = "answer"
     }
-  });
+  })
 }
 document.getElementById("goOn").addEventListener("click", () => {
-  let selectedButton = false;
+  let selectedButton = false
   buttons.forEach((button) => {
-    console.log(button.style.backgroundColor);
+    console.log(button.style.backgroundColor)
     if (button.style.backgroundColor === "rgb(210, 0, 148)") {
-      selectedButton = true;
+      selectedButton = true
     }
-  });
+  })
   if (selectedButton) {
-    verifyAnswer();
+    verifyAnswer()
     setTimeout(() => {
-      quizIndex++;
+      quizIndex++
       buttons.forEach((button) => {
-        button.style.backgroundColor = "rgb(128, 128, 128, 0.1)";
-        button.id = "answer";
-      });
+        button.style.backgroundColor = "rgb(128, 128, 128, 0.1)"
+        button.id = "answer"
+      })
       if (quizIndex < quiz.results.length) {
-        loadQuestion();
+        loadQuestion()
+        inizio() //così il timer riparte a ogni domanda
       } else {
-        window.location.href = "http://127.0.0.1:5500/results.html";
+        window.location.href = "http://127.0.0.1:5500/results.html"
       }
-    }, 2000);
+    }, 2000)
   } else {
-    alert("Select an answer!");
+    alert("Select an answer!")
   }
-});
+})
+
+//JS PER IMPLEMENTARE IL TIMER
+
+let donutChart
+let timer
+
+//creo il grafico a donut
+const createDonutChart = function (value, maxValue) {
+  const countdown = document.getElementById("donuts-countdown").getContext("2d")
+
+  if (donutChart) {
+    donutChart.destroy()
+  } //distrugge il grafico attuale per poi crearne uno nuovo senza sovrapporli
+
+  donutChart = new Chart(countdown, {
+    type: "doughnut",
+    data: {
+      datasets: [
+        {
+          data: [value, maxValue - value],
+          backgroundColor: ["rgb(255, 255, 255,0.3)", "#00FFFF"],
+          borderWidth: 0,
+        },
+      ],
+    },
+    options: {
+      tooltips: {
+        enabled: false,
+        responsive: false,
+        maintainAspectRatio: false,
+      },
+      cutout: 38,
+    },
+  })
+}
+
+//questa funzione aggiorna il grafico cambiando i dati
+const updateDonutChart = function (chart, value, maxValue) {
+  if (donutChart) {
+    chart.data.datasets[0].data[0] = value
+    chart.data.datasets[0].data[1] = maxValue - value
+    chart.update({
+      duration: 1000, // animazione di 1s
+      easing: "easeInOutCirc",
+    })
+  }
+}
+
+const inizio = function () {
+  clearInterval(timer)
+
+  const maxValue = 11
+  let counter = 0
+
+  createDonutChart(counter, maxValue)
+
+  let number = document.getElementById("number-container")
+
+  let donut = document.getElementById("countdown")
+  console.log(donut)
+
+  console.log(donut)
+
+  timer = setInterval(() => {
+    if (counter < maxValue) {
+      counter = counter + 1
+      console.log(counter)
+      updateDonutChart(donutChart, counter, maxValue)
+    } else {
+      clearInterval(timer)
+    }
+
+    //aggiorna il numero del countdown
+    number.innerHTML = `
+    <p class="second-remaining">SECONDS</p>
+    <p id="number">${maxValue - counter}</p>
+    <p class="second-remaining">REMAINING</p>`
+  }, 1000)
+}
+
+//questo if avvia il timer solo all'inizio
+if (quizIndex === 0) {
+  inizio()
+} else if (quizIndex !== 0) {
+  donutChart.destroy()
+}
+
+//riavvio del timer  a ogni domanda
+document.getElementById("goOn").addEventListener("click", () => {
+  inizio()
+})
