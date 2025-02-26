@@ -17,7 +17,7 @@
 
 .container {
   position: relative;
-  min-height: 80vh; /* Assicura che il contenitore prenda tutta l'altezza della viewport */
+  min-height: 100vh; /* Assicura che il contenitore prenda tutta l'altezza della viewport */
 }
 
 body {
@@ -112,4 +112,9 @@ span {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+#special-button a {
+  color: white;
+  text-decoration: none;
 }
