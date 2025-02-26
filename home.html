@@ -46,13 +46,28 @@
       <button id="proceedButton">PROCEED</button>
     </footer>
     <script>
-      document.getElementById("proceedButton").addEventListener("click", () => {
+      const button = document.getElementById("proceedButton");
+      button.addEventListener("click", () => {
         const checkbox = document.getElementById("check");
         if (checkbox.checked) {
           window.location.href = "questions.html";
         } else {
           alert("You must accept before proceeding!");
         }
+      });
+      button.addEventListener("mouseover", () => {
+        button.style.boxShadow = "0px 0px 17px 5px #6be7fc";
+      });
+      button.addEventListener("mouseout", () => {
+        button.style.boxShadow = "";
+      });
+      const box = document.getElementsByClassName("checkmark")[0];
+      box.addEventListener("mouseover", () => {
+        box.style.backgroundColor = "white";
+      });
+
+      box.addEventListener("mouseout", () => {
+        box.style.backgroundColor = "";
       });
     </script>
   </body>
