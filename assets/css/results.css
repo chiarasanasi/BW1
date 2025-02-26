@@ -52,6 +52,7 @@ h1 {
 
 .congratulations {
   text-align: center;
+  position: absolute;
 }
 
 h3 {
@@ -81,18 +82,34 @@ span {
   font-size: 2em;
 }
 
-#right-aside {
-  position: absolute;
-  right: 0;
-  width: 12%;
+#special-button {
+  color: white;
+  border-color: white;
+  cursor: pointer;
 }
 
-#left-aside,
-#right-aside {
-  position: absolute;
-  top: 5;
+#special-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-#left-aside {
-  margin-left: 3em;
+#pie-chart-container {
+  height: 500px;
+  width: 500px;
+}
+#pie-chart-text-container {
+  position: absolute;
+  text-align: center;
+}
+#chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#colum-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

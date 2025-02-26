@@ -6,4 +6,23 @@ const pieChar = ()=>{
     let wrongPercent = ((wrong/ question)*100).toFixed(1)
     document.getElementById("correct").textContent= `Correct: ${correctPercent}% (${rigth}/${question} questions)`
     document.getElementById("wrong").textContent= `Wrong: ${wrongPercent}% (${wrong}/${question} questions)`
+
+    const config ={
+        type: 'doughnut',
+        data: {
+            // se vogliamo la legenda basta scommentare questa riga
+            // labels: ["Risposte Corrette", "Risposte Sbagliate"],
+            datasets:[{
+                backgroundColor:["#00ffff","#c2128d"],
+                data:[correctPercent,wrongPercent]
+            }]
+        },
+        options: {
+            responsive: true,
+            cutout: "90%",
+        }
+    }
+    new Chart(document.getElementById('pie-chart'), config);
+
 }
+pieChar()
