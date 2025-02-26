@@ -1,13 +1,13 @@
 main {
   text-align: center;
-  margin-top: 80px;
+  margin-top: 50px;
 }
 #answer #question {
   margin: 0;
   padding: 0;
 }
 #question p {
-  font-size: 2.6rem;
+  font-size: 2.4rem;
   font-family: "Outfit", sans-serif;
   margin: 1em 25px;
   /* margin-bottom: 5%;
@@ -29,7 +29,7 @@ strong {
   box-sizing: border-box;
   border-radius: 50px 50px;
   width: 20rem;
-  height: 62px;
+  height: 57px;
   text-align: center;
   background-color: rgb(128, 128, 128, 0.1);
   cursor: pointer;
@@ -51,7 +51,7 @@ strong {
   color: whitesmoke;
   padding-inline: 50px;
   padding-block: 12px;
-  margin-top: 35px;
+  margin-top: 25px;
   font-weight: 600;
   font-size: 18px;
   font-family: "outfit";
@@ -70,9 +70,18 @@ section p {
   font-size: 15px;
   font-family: "Outfit", sans-serif;
   letter-spacing: 2px;
-  margin-top: 70px;
+  margin-top: 60px;
 }
 
+section {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+body {
+  margin-bottom: 0;
+}
 section span {
   color: #900080;
 }
