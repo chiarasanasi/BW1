@@ -1,24 +1,17 @@
-body {
-  color: whitesmoke;
-  background-image: url(../images/bg.jpg);
-  background-size: cover;
-}
-.logo {
-  inline-size: 10rem;
-  padding: 3rem;
-  margin-left: 4rem;
-}
-
 main {
   text-align: center;
 }
-
+#answer #question {
+  margin: 0;
+  padding: 0;
+}
 #question p {
-  font-size: 4.5rem;
+  font-size: 2.6rem;
   font-family: "Outfit", sans-serif;
-  margin-bottom: 5%;
+  margin: 1em 25px;
+  /* margin-bottom: 5%;
   margin-left: 15%;
-  margin-right: 15%;
+  margin-right: 15%; */
 }
 strong {
   font-weight: bold;
@@ -27,15 +20,15 @@ strong {
 #answers button {
   cursor: pointer;
   font-family: "Inter", sans-serif;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 750;
   color: whitesmoke;
   margin: 1%;
   padding: 10px 20px;
   box-sizing: border-box;
   border-radius: 50px 50px;
-  width: 29rem;
-  height: 90px;
+  width: 20rem;
+  height: 62px;
   text-align: center;
   background-color: rgb(128, 128, 128, 0.1);
   cursor: pointer;
@@ -50,41 +43,36 @@ strong {
   padding: 10px 20px;
   box-sizing: border-box;
   border-radius: 50px 50px;
-
-  width: 29rem;
-  height: 90px;
-
   text-align: center;
   background-color: #d20094;
 }
 #goOn {
   color: whitesmoke;
-  padding-inline: 60px;
-  padding-block: 15px;
+  padding-inline: 50px;
+  padding-block: 12px;
+  margin-top: 35px;
   font-weight: 600;
-  font-size: 25px;
+  font-size: 18px;
   font-family: "outfit";
   background-color: transparent;
   box-shadow: 0px 0px 25px 3px #4f37d7;
   border: solid white;
-  margin-left: o;
   cursor: pointer;
 }
-footer {
+/* section {
   text-align: center;
   padding-bottom: 5rem;
-}
+} */
 
-footer p {
+section p {
   font-weight: 400;
-  font-size: 25px;
+  font-size: 15px;
   font-family: "Outfit", sans-serif;
   letter-spacing: 2px;
-  margin-top: 100px;
-  padding-bottom: 2rem;
+  margin-top: 70px;
 }
 
-footer span {
+section span {
   color: #900080;
 }
 #positive {
@@ -101,7 +89,7 @@ footer span {
 
 header {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
 }
 
@@ -109,7 +97,6 @@ header {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  margin-right: 4rem;
 }
 
 #countdown div {
@@ -118,14 +105,14 @@ header {
 }
 
 #donuts-countdown {
-  max-width: 150px;
-  max-height: 150px;
+  max-width: 100px;
+  max-height: 100px;
 }
 
 .second-remaining {
   font-family: "Montserrat";
   color: white;
-  font-size: 8px;
+  font-size: 6px;
   margin: 0;
   padding: 0;
 }
@@ -133,7 +120,7 @@ header {
 #number {
   font-family: "Montserrat";
   color: white;
-  font-size: 40px;
+  font-size: 28px;
   margin: 0;
   padding: 0;
 }

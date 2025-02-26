@@ -211,6 +211,7 @@ document.getElementById("goOn").addEventListener("click", () => {
 let donutChart
 let timer
 
+//creo il grafico a donut
 const createDonutChart = function (value, maxValue) {
   const countdown = document.getElementById("donuts-countdown").getContext("2d")
 
@@ -235,16 +236,16 @@ const createDonutChart = function (value, maxValue) {
         responsive: false,
         maintainAspectRatio: false,
       },
-      cutout: 55,
+      cutout: 38,
     },
   })
 }
 
 //questa funzione aggiorna il grafico cambiando i dati
-const updateDonutChart = function (chart, counter, maxValue) {
+const updateDonutChart = function (chart, value, maxValue) {
   if (donutChart) {
-    chart.data.datasets[0].data[0] = counter
-    chart.data.datasets[0].data[1] = maxValue
+    chart.data.datasets[0].data[0] = value
+    chart.data.datasets[0].data[1] = maxValue - value
     chart.update({
       duration: 1000, // animazione di 1s
       easing: "easeInOutCirc",
@@ -255,18 +256,16 @@ const updateDonutChart = function (chart, counter, maxValue) {
 const inizio = function () {
   clearInterval(timer)
 
-  const maxValue = 31
+  const maxValue = 11
   let counter = 0
 
   createDonutChart(counter, maxValue)
 
-  let number = document.createElement("div")
+  let number = document.getElementById("number-container")
 
   let donut = document.getElementById("countdown")
   console.log(donut)
 
-  // donut.innerHTML = ""
-  donut.appendChild(number)
   console.log(donut)
 
   timer = setInterval(() => {
@@ -289,13 +288,11 @@ const inizio = function () {
 //questo if avvia il timer solo all'inizio
 if (quizIndex === 0) {
   inizio()
+} else if (quizIndex !== 0) {
+  donutChart.destroy()
 }
 
 //riavvio del timer  a ogni domanda
 document.getElementById("goOn").addEventListener("click", () => {
-  let primoDiv = document.querySelector("#countdown div")
-  if (primoDiv) {
-    primoDiv.remove()
-  }
   inizio()
 })
