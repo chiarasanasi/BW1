@@ -33,6 +33,38 @@ input {
   cursor: pointer;
 }
 
+input {
+  display: none;
+}
+
+.checkmark {
+  width: 20px;
+  height: 20px;
+  border: 2px solid white;
+  background-color: transparent;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked + .checkmark::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 2px;
+  width: 6px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.checkbox-container {
+  display: inline-block;
+  cursor: pointer;
+}
+
 button {
   float: right;
   background-color: #00eaff;

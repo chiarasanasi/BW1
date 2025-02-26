@@ -14,36 +14,52 @@
     </header>
     <main>
       <div class="container">
-        <div>
+        <div class="results">
           <h1>Results</h1>
           <p>The summary of your answers:</p>
         </div>
-        <div>
-          <div>
-            <div id="pie-chart">
-              <div>
-                <h3>Congratulations!</h3>
-                <h4 id="special-text">You passed the exam.</h4>
-                <p>
-                  We’ll send you the certificate in a few minutes. Check your
-                  email (including promotions / spam folder).
-                </p>
-              </div>
+        <div id="colum-container">
+          <aside id="left-aside">
+            <p id="correct">Correct</p>
+            <span class="percentuale"><strong>66.7%</strong></span>
+            <span>4/6 questions</span>
+          </aside>
+          <div id="chart-container">
+            <div id="pie-chart-container">
+              <canvas id="pie-chart"></canvas>
+            </div>
+
+            <div class="congratulations">
+              <h3>Congratulations!</h3>
+              <h4 id="special-text">You passed the exam.</h4>
+              <p>
+                We’ll send you the certificate in a few minutes.
+                <br />
+                Check your email (including promotions / spam folder).
+              </p>
             </div>
           </div>
           <!-- il contenuto dovra essere aggiornato con js in maniera dinamica in base alle risposte -->
-          <aside>
-            <p id="correct">Correct 66.7% 4/6 questions</p>
-          </aside>
-          <aside>
-            <p id="wrong">Wrong 33.3% 2/6 questions</p>
+
+          <aside id="right-aside">
+            <p id="wrong">Wrong</p>
+            <span class="percentuale"><strong>33,3%</strong></span>
+            <span>2/6 questions</span>
           </aside>
         </div>
         <div id="special-button-container">
-          <button id="special-button">RATE US</button>
+          <button id="special-button">
+            <a href="./feedback.html">RATE US</a>
+          </button>
         </div>
       </div>
     </main>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"
+      integrity="sha512-ZwR1/gSZM3ai6vCdI+LVF1zSq/5HznD3ZSTk7kajkaj4D292NLuduDCO1c/NT8Id+jE58KYLKT7hXnbtryGmMg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script src="./assets/js/results.js"></script>
   </body>
 </html>

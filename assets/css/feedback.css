@@ -38,7 +38,7 @@ h2 {
 }
 
 p {
-    font-size: 18px;
+    font-size: 1.3em;
     margin: 15px 0;
 }
 
@@ -53,15 +53,15 @@ p {
     background-image: url("/assets/images/star.svg");
     background-size: cover;
     cursor: pointer;
-    filter: grayscale(100%) brightness(50%);
     transition: 0.3s ease-in-out;
     display: inline-block;
+    filter: brightness(0) saturate(100%) invert(11%) sepia(32%) saturate(5000%) hue-rotate(220deg) brightness(40%) contrast(100%);
 }
 
 .star.active,
 .star:hover,
 .star:hover ~ .star {
-    filter: grayscale(0%) brightness(100%);
+    filter: none; 
 }
 
 /* Input commento */
@@ -95,7 +95,6 @@ button {
     background: cyan;
     border: none;
     cursor: pointer;
-    border-radius: 8px;
     transition: 0.3s;
     box-shadow: 0px 0px 20px rgba(0, 255, 255, 0.8);
 }

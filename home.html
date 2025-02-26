@@ -37,12 +37,23 @@
     </main>
     <footer>
       <div>
-        <input type="checkbox" id="check" />
-        <label for="check"
-          >I promise to answer myself without help from anyone</label
-        >
+        <label class="checkbox-container">
+          <input type="checkbox" id="check" />
+          <span class="checkmark"></span>
+        </label>
+        <span>I promise to answer myself without help from anyone</span>
       </div>
-      <button>PROCEED</button>
+      <button id="proceedButton">PROCEED</button>
     </footer>
+    <script>
+      document.getElementById("proceedButton").addEventListener("click", () => {
+        const checkbox = document.getElementById("check");
+        if (checkbox.checked) {
+          window.location.href = "questions.html";
+        } else {
+          alert("You must accept before proceeding!");
+        }
+      });
+    </script>
   </body>
 </html>
