@@ -1,5 +1,5 @@
-/*  Stili generali */
-body {
+/* Stili generali */
+/*body {
     background: url("/assets/images/bg.jpg") no-repeat center center fixed;
     background-size: cover;
     color: white;
@@ -10,7 +10,7 @@ body {
     padding: 0;
     display: table;
     width: 100%;
-}
+} 
 
 /* Contenitore centrale */
 .container {
@@ -21,8 +21,8 @@ body {
     padding: 6em;
 }
 
-/* Logo in alto a sinistra */
-.logo {
+/* Logo */
+/*.logo {
     position: absolute;
     top: 20px;
     left: 20px;
@@ -30,7 +30,7 @@ body {
     padding: 3em;
 }
 
-/*  Titoli e testo */
+/* Titoli e testo */
 h2 {
     font-size: 32px;
     font-weight: 600;
@@ -42,26 +42,33 @@ p {
     margin: 15px 0;
 }
 
+/* Contenitore stelle */
 .rating-container {
     display: inline-block;
     margin: 30px 0;
 }
 
+/* Stelle */
 .star {
     width: 50px;
     height: 50px;
     background-image: url("/assets/images/star.svg");
     background-size: cover;
     cursor: pointer;
-    transition: 0.3s ease-in-out;
+    transition: 0.2s ease-in-out;
     display: inline-block;
-    filter: brightness(0) saturate(100%) invert(11%) sepia(32%) saturate(5000%) hue-rotate(220deg) brightness(40%) contrast(100%);
+    filter: brightness(0) saturate(100%) invert(11%) sepia(32%) 
+            saturate(5000%) hue-rotate(220deg) brightness(40%) contrast(100%);
 }
 
-.star.active,
-.star:hover,
-.star:hover ~ .star {
-    filter: none; 
+/* Quando passo sopra una stella, illumino solo fino a quella */
+.star.hover {
+    filter: none;
+}
+
+/* Quando clicco su una stella, illumino solo fino alla selezionata */
+.star.selected {
+    filter: none;
 }
 
 /* Input commento */
@@ -102,5 +109,6 @@ button {
 button:hover {
     box-shadow: 0px 0px 30px rgba(0, 255, 255, 1);
 }
+
 
 
