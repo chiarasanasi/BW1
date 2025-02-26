@@ -281,7 +281,7 @@ const updateDonutChart = function (chart, value, maxValue) {
 const inizio = function () {
   clearInterval(timer)
 
-  const maxValue = 10
+  const maxValue = 11
   let counter = 0
 
   createDonutChart(counter, maxValue)
