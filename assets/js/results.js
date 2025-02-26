@@ -10,7 +10,8 @@ const pieChar = ()=>{
     const config ={
         type: 'doughnut',
         data: {
-            labels: ["Risposte Corrette", "Risposte Sbagliate"],
+            // se vogliamo la legenda basta scommentare questa riga
+            // labels: ["Risposte Corrette", "Risposte Sbagliate"],
             datasets:[{
                 backgroundColor:["#00ffff","#c2128d"],
                 data:[correctPercent,wrongPercent]
@@ -18,9 +19,10 @@ const pieChar = ()=>{
         },
         options: {
             responsive: true,
-            cutout: "90%"
+            cutout: "90%",
         }
     }
     new Chart(document.getElementById('pie-chart'), config);
+
 }
 pieChar()
