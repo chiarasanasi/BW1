@@ -171,11 +171,13 @@ loadQuestion()
 function verifyAnswer() {
   const currentQuestion = quiz.results[quizIndex]
   let greenAnswer = currentQuestion.correct_answer
+  let answerCorrect = false
+
   buttons.forEach((button) => {
     if (button.style.backgroundColor === "rgb(210, 0, 148)") {
-      console.log(button.innerText)
       if (button.innerText === greenAnswer) {
         button.id = "positive"
+        answerCorrect = true
       } else {
         button.id = "negative"
       }
@@ -183,7 +185,18 @@ function verifyAnswer() {
       button.id = "answer"
     }
   })
+
+  const result = {
+    questionIndex: quizIndex,
+    correct: answerCorrect,
+  }
+
+  let results = JSON.parse(sessionStorage.getItem("quizResults")) || []
+  results.push(result)
+  sessionStorage.setItem("quizResults", JSON.stringify(results))
+  console.log(result)
 }
+
 document.getElementById("goOn").addEventListener("click", () => {
   let selectedButton = false
   buttons.forEach((button) => {
@@ -257,12 +270,18 @@ const updateDonutChart = function (chart, value, maxValue) {
       easing: "easeInOutCirc",
     })
   }
+  if (maxValue - value < 6) {
+    chart.data.datasets[0].backgroundColor = [
+      "rgba(255, 255, 255,0.3)",
+      "rgb(255, 0, 0)",
+    ]
+  }
 }
 
 const inizio = function () {
   clearInterval(timer)
 
-  const maxValue = 11
+  const maxValue = 10
   let counter = 0
 
   createDonutChart(counter, maxValue)
