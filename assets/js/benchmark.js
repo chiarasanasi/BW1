@@ -238,6 +238,8 @@ const createDonutChart = function (value, maxValue) {
     donutChart.destroy()
   } //distrugge il grafico attuale per poi crearne uno nuovo senza sovrapporli
 
+  Chart.defaults.plugins.tooltip.enabled = false //codice per eliminare l'etichetta che appare quando passi sul grafico
+
   donutChart = new Chart(countdown, {
     type: "doughnut",
     data: {
