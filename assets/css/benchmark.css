@@ -25,7 +25,8 @@ strong {
   font-weight: 750;
   color: whitesmoke;
   margin: 1%;
-  padding: 10px 20px;
+  /*padding: 10px 20px;*/
+  padding: 5px;
   box-sizing: border-box;
   border-radius: 50px 50px;
   width: 20rem;

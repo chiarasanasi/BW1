@@ -1,13 +1,13 @@
-const buttons = document.querySelectorAll(".singleAnswer")
-console.log(buttons)
+const buttons = document.querySelectorAll(".singleAnswer");
+console.log(buttons);
 
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
-    buttons.forEach((btn) => (btn.style.backgroundColor = ""))
-    button.style.backgroundColor = "#D20094"
-  })
+    buttons.forEach((btn) => (btn.style.backgroundColor = ""));
+    button.style.backgroundColor = "#D20094";
+  });
   // console.log(buttons);
-})
+});
 
 const quiz = {
   response_code: 0,
@@ -56,10 +56,10 @@ const quiz = {
       category: "Science: Computers",
       question: "What does the Prt Sc button do?",
       correct_answer:
-        "Captures what&#039;s on the screen and copies it to your clipboard",
+        "Captures what's on the screen and copies it to your clipboard",
       incorrect_answers: [
         "Nothing",
-        "Saves a .png file of what&#039;s on the screen in your screenshots folder in photos",
+        "Saves a .png file of what's on the screen in your screenshots folder in photos",
         "Closes all windows",
       ],
     },
@@ -130,20 +130,20 @@ const quiz = {
       incorrect_answers: ["Python", "C", "Jakarta"],
     },
   ],
-}
-let quizIndex = 0
+};
+let quizIndex = 0;
 
 function loadQuestion() {
-  const currentQuestion = quiz.results[quizIndex]
+  const currentQuestion = quiz.results[quizIndex];
   const allAnswers = [
     currentQuestion.correct_answer,
     ...currentQuestion.incorrect_answers,
-  ]
+  ];
 
-  const shuffledAnswers = allAnswers.sort(() => Math.random() - 0.5)
+  const shuffledAnswers = allAnswers.sort(() => Math.random() - 0.5);
 
   document.getElementById("question").querySelector("p").innerHTML =
-    currentQuestion.question
+    currentQuestion.question;
 
   /*document.querySelectorAll(".singleAnswer")[0].innerText =
     currentQuestion.correct_answer
@@ -157,88 +157,90 @@ function loadQuestion() {
   });*/
 
   // Così strutturato il codice assegna la risposta corretta sempre al primo button. Ho risolto così ---Felice
-  const answerOptions = document.querySelectorAll(".singleAnswer")
+  const answerOptions = document.querySelectorAll(".singleAnswer");
   shuffledAnswers.forEach((answer, i) => {
-    answerOptions[i].innerText = answer
-  })
+    answerOptions[i].innerText = answer;
+  });
 
   document.getElementById("questionNumber").innerHTML = `QUESTION ${
     quizIndex + 1
-  } <span>/10</span>`
+  } <span>/10</span>`;
   //questionNumberElement.style.color = "rgb(210, 0, 148)";
 }
-loadQuestion()
+loadQuestion();
 function verifyAnswer() {
-  const currentQuestion = quiz.results[quizIndex]
-  let greenAnswer = currentQuestion.correct_answer
-  let answerCorrect = false
+  const currentQuestion = quiz.results[quizIndex];
+  let greenAnswer = currentQuestion.correct_answer;
+  let answerCorrect = false;
 
   buttons.forEach((button) => {
     if (button.style.backgroundColor === "rgb(210, 0, 148)") {
       if (button.innerText === greenAnswer) {
-        button.id = "positive"
-        answerCorrect = true
+        button.id = "positive";
+        answerCorrect = true;
       } else {
-        button.id = "negative"
+        button.id = "negative";
       }
     } else {
-      button.id = "answer"
+      button.id = "answer";
     }
-  })
+  });
 
   const result = {
     questionIndex: quizIndex,
     correct: answerCorrect,
-  }
+  };
 
-  let results = JSON.parse(sessionStorage.getItem("quizResults")) || []
-  results.push(result)
-  sessionStorage.setItem("quizResults", JSON.stringify(results))
-  console.log(result)
+  let results = JSON.parse(sessionStorage.getItem("quizResults")) || [];
+  results.push(result);
+  sessionStorage.setItem("quizResults", JSON.stringify(results));
+  console.log(result);
 }
 
 document.getElementById("goOn").addEventListener("click", () => {
-  let selectedButton = false
+  let selectedButton = false;
   buttons.forEach((button) => {
-    console.log(button.style.backgroundColor)
+    console.log(button.style.backgroundColor);
     if (button.style.backgroundColor === "rgb(210, 0, 148)") {
-      selectedButton = true
+      selectedButton = true;
     }
-  })
+  });
   if (selectedButton) {
-    verifyAnswer()
+    verifyAnswer();
     setTimeout(() => {
-      quizIndex++
+      quizIndex++;
       buttons.forEach((button) => {
-        button.style.backgroundColor = "rgb(128, 128, 128, 0.1)"
-        button.id = "answer"
-      })
+        button.style.backgroundColor = "rgb(128, 128, 128, 0.1)";
+        button.id = "answer";
+      });
       if (quizIndex < quiz.results.length) {
-        loadQuestion()
-        inizio() //così il timer riparte a ogni domanda
+        loadQuestion();
+        inizio(); //così il timer riparte a ogni domanda
       } else {
-        window.location.href = "http://127.0.0.1:5500/results.html"
+        window.location.href = "http://127.0.0.1:5500/results.html";
       }
-    }, 2000)
+    }, 2000);
   } else {
-    alert("Select an answer!")
+    alert("Select an answer!");
   }
-})
+});
 
 //JS PER IMPLEMENTARE IL TIMER
 
-let donutChart
-let timer
+let donutChart;
+let timer;
 
 //creo il grafico a donut
 const createDonutChart = function (value, maxValue) {
-  const countdown = document.getElementById("donuts-countdown").getContext("2d")
+  const countdown = document
+    .getElementById("donuts-countdown")
+    .getContext("2d");
 
   if (donutChart) {
-    donutChart.destroy()
+    donutChart.destroy();
   } //distrugge il grafico attuale per poi crearne uno nuovo senza sovrapporli
 
-  Chart.defaults.plugins.tooltip.enabled = false //codice per eliminare l'etichetta che appare quando passi sul grafico
+  Chart.defaults.plugins.tooltip.enabled = false; //codice per eliminare l'etichetta che appare quando passi sul grafico
 
   donutChart = new Chart(countdown, {
     type: "doughnut",
@@ -259,67 +261,67 @@ const createDonutChart = function (value, maxValue) {
       },
       cutout: 38,
     },
-  })
-}
+  });
+};
 
 //questa funzione aggiorna il grafico cambiando i dati
 const updateDonutChart = function (chart, value, maxValue) {
   if (donutChart) {
-    chart.data.datasets[0].data[0] = value
-    chart.data.datasets[0].data[1] = maxValue - value
+    chart.data.datasets[0].data[0] = value;
+    chart.data.datasets[0].data[1] = maxValue - value;
     chart.update({
       duration: 1000, // animazione di 1s
       easing: "easeInOutCirc",
-    })
+    });
   }
   if (maxValue - value < 11) {
     chart.data.datasets[0].backgroundColor = [
       "rgba(255, 255, 255,0.3)",
       "rgb(255, 0, 0)",
-    ]
+    ];
   }
-}
+};
 
 const inizio = function () {
-  clearInterval(timer)
+  clearInterval(timer);
 
-  const maxValue = 31
-  let counter = 0
+  const maxValue = 31;
+  let counter = 0;
 
-  createDonutChart(counter, maxValue)
+  createDonutChart(counter, maxValue);
 
-  let number = document.getElementById("number-container")
+  let number = document.getElementById("number-container");
 
-  let donut = document.getElementById("countdown")
-  console.log(donut)
+  let donut = document.getElementById("countdown");
+  console.log(donut);
 
-  console.log(donut)
+  console.log(donut);
 
   timer = setInterval(() => {
     if (counter < maxValue) {
-      counter = counter + 1
-      console.log(counter)
-      updateDonutChart(donutChart, counter, maxValue)
+      counter = counter + 1;
+      console.log(counter);
+      updateDonutChart(donutChart, counter, maxValue);
     } else {
-      clearInterval(timer)
+      clearInterval(timer);
     }
 
     //aggiorna il numero del countdown
     number.innerHTML = `
     <p class="second-remaining">SECONDS</p>
     <p id="number">${maxValue - counter}</p>
-    <p class="second-remaining">REMAINING</p>`
-  }, 1000)
-}
+    <p class="second-remaining">REMAINING</p>`;
+  }, 1000);
+};
 
 //questo if avvia il timer solo all'inizio
 if (quizIndex === 0) {
-  inizio()
+  inizio();
 } else if (quizIndex !== 0) {
-  donutChart.destroy()
+  donutChart.destroy();
 }
 
 //riavvio del timer  a ogni domanda
 document.getElementById("goOn").addEventListener("click", () => {
-  inizio()
-})
+  inizio();
+});
