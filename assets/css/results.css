@@ -2,7 +2,7 @@
 .container {
   position: relative;
   width: 100%;
-  height: calc(100vh - 107px);
+  height: calc(98vh - 105px);
   overflow: hidden;
 }
 
@@ -75,6 +75,18 @@
   font-size: 2em;
 }
 
+#percentageCorrect,
+#percentageWrong {
+  font-size: 2em;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#questionsCorrect,
+#questionsWrong {
+  margin-top: 0;
+}
+
 span {
   display: block;
 }
@@ -94,6 +106,11 @@ span {
 #special-button a {
   color: white;
   text-decoration: none;
+}
+
+#special-button-container {
+  display: flex;
+  justify-content: center;
 }
 
 img {
