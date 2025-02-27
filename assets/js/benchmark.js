@@ -55,13 +55,8 @@ const quiz = {
       difficulty: "easy",
       category: "Science: Computers",
       question: "What does the Prt Sc button do?",
-      correct_answer:
-        "Captures what's on the screen and copies it to your clipboard",
-      incorrect_answers: [
-        "Nothing",
-        "Saves a .png file of what's on the screen in your screenshots folder in photos",
-        "Closes all windows",
-      ],
+      correct_answer: "Save the screen and copies it to your clipboard",
+      incorrect_answers: ["Nothing", "Saves a .png file", "Closes all windows"],
     },
     {
       type: "multiple",
