@@ -2,7 +2,7 @@
 .container {
   position: relative;
   width: 100%;
-  height: calc(98vh - 105px);
+  height: calc(98vh - 130px);
   overflow: hidden;
 }
 
