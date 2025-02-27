@@ -7,12 +7,18 @@ const pieChar = () => {
   const correctPercent = ((correctAnswers / totalQuestions) * 100).toFixed(1)
   const wrongPercent = ((wrongAnswers / totalQuestions) * 100).toFixed(1)
 
+  document.getElementById("correct").textContent = `Correct`
+  document.getElementById("wrong").textContent = `Wrong`
   document.getElementById(
-    "correct"
-  ).textContent = `Correct: ${correctPercent}% (${correctAnswers}/${totalQuestions} questions)`
+    "percentageCorrect"
+  ).textContent = ` ${correctPercent}%`
+  document.getElementById("percentageWrong").textContent = ` ${wrongPercent}%`
   document.getElementById(
-    "wrong"
-  ).textContent = `Wrong: ${wrongPercent}% (${wrongAnswers}/${totalQuestions} questions)`
+    "questionsWrong"
+  ).textContent = `(${wrongAnswers}/${totalQuestions} questions)`
+  document.getElementById(
+    "questionsCorrect"
+  ).textContent = `(${correctAnswers}/${totalQuestions} questions)`
 
   // Selezioniamo gli elementi da modificare
   const specialText = document.getElementById("special-text")
