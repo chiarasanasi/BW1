@@ -272,7 +272,7 @@ const updateDonutChart = function (chart, value, maxValue) {
       easing: "easeInOutCirc",
     })
   }
-  if (maxValue - value < 6) {
+  if (maxValue - value < 11) {
     chart.data.datasets[0].backgroundColor = [
       "rgba(255, 255, 255,0.3)",
       "rgb(255, 0, 0)",
@@ -283,7 +283,7 @@ const updateDonutChart = function (chart, value, maxValue) {
 const inizio = function () {
   clearInterval(timer)
 
-  const maxValue = 11
+  const maxValue = 31
   let counter = 0
 
   createDonutChart(counter, maxValue)
