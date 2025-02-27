@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./css/results.css" />
+    <link rel="stylesheet" href="/assets/css/general-style.css" />
+    <link rel="stylesheet" href="./assets/css/results.css" />
   </head>
   <body>
     <header>
@@ -14,36 +15,52 @@
     </header>
     <main>
       <div class="container">
-        <div>
+        <div class="results">
           <h1>Results</h1>
           <p>The summary of your answers:</p>
         </div>
-        <div>
-          <div>
-            <div id="pie-chart">
-              <div>
-                <h3>Congratulations!</h3>
-                <h4 id="special-text">You passed the exam.</h4>
-                <p>
-                  We’ll send you the certificate in a few minutes. Check your
-                  email (including promotions / spam folder).
-                </p>
-              </div>
+        <div id="colum-container">
+          <aside id="left-aside">
+            <p id="correct">Correct</p>
+            <strong><p id="percentageCorrect"></p></strong>
+            <p id="questionsCorrect"></p>
+          </aside>
+          <div id="chart-container">
+            <div id="pie-chart-container">
+              <canvas id="pie-chart"></canvas>
+            </div>
+
+            <div class="congratulations">
+              <h3>Congratulations!</h3>
+              <h4 id="special-text">You passed the exam.</h4>
+              <p>
+                We’ll send you the certificate in a few minutes.
+                <br />
+                Check your email (including promotions / spam folder).
+              </p>
             </div>
           </div>
           <!-- il contenuto dovra essere aggiornato con js in maniera dinamica in base alle risposte -->
-          <aside>
-            <p id="correct">Correct 66.7% 4/6 questions</p>
+
+          <aside id="right-aside">
+            <p id="wrong">Wrong</p>
+            <strong><p id="percentageWrong"></p></strong>
+            <p id="questionsWrong"></p>
           </aside>
-          <aside>
-            <p id="wrong">Wrong 33.3% 2/6 questions</p>
-          </aside>
-        </div>
-        <div id="special-button-container">
-          <button id="special-button">RATE US</button>
         </div>
       </div>
+      <div id="special-button-container">
+        <button id="special-button">
+          <a href="./feedback.html">RATE US</a>
+        </button>
+      </div>
     </main>
-    <script src="./results.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"
+      integrity="sha512-ZwR1/gSZM3ai6vCdI+LVF1zSq/5HznD3ZSTk7kajkaj4D292NLuduDCO1c/NT8Id+jE58KYLKT7hXnbtryGmMg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="./assets/js/results.js"></script>
   </body>
 </html>
