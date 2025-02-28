@@ -54,11 +54,17 @@
 #special-text {
   font-size: 1.2em;
   color: #00feff;
+  margin: 0;
 }
 
 /* Testo "Congratulations" sotto lo special text */
 .congratulations h3 {
   font-size: 1em;
+}
+
+.congratulations p {
+  font-size: 10px;
+  font-weight: 600;
 }
 
 /* Scritte laterali */
