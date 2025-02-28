@@ -3,17 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Epicode</title>
+    <title>Epicode - Welcome to you exam!</title>
     <link rel="stylesheet" href="./assets/css/general-style.css" />
     <link rel="stylesheet" href="./assets/css/home-style.css" />
   </head>
   <body>
     <header>
-      <img
-        src="./assets/images/epicode_logo.png"
-        alt="logo Epicode"
-        class="logo"
-      />
+      <a
+        href="https://epicode.com/it/candidati/?utm_source=googleads&utm_campaign=brand&utm_adgroup=brandphrase&utm_term=epicode&utm_campaign=Brand&utm_source=adwords&utm_medium=ppc&hsa_acc=1246633295&hsa_cam=11897141170&hsa_grp=115607542316&hsa_ad=717726046300&hsa_src=g&hsa_tgt=kwd-1083842420863&hsa_kw=epicode&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gad_source=1&gclid=Cj0KCQiA2oW-BhC2ARIsADSIAWrJ5lRV2CqTrzkDioFrhPugD_bVJ6BSk3jutX_2V_68rUhHDytNz74aAgLgEALw_wcB"
+      >
+        <img
+          src="./assets/images/epicode_logo.png"
+          alt="logo Epicode"
+          class="logo"
+        />
+      </a>
     </header>
     <main>
       <div>
@@ -46,29 +50,29 @@
       <button id="proceedButton">PROCEED</button>
     </footer>
     <script>
-      const button = document.getElementById("proceedButton");
+      const button = document.getElementById("proceedButton")
       button.addEventListener("click", () => {
-        const checkbox = document.getElementById("check");
+        const checkbox = document.getElementById("check")
         if (checkbox.checked) {
-          window.location.href = "questions.html";
+          window.location.href = "questions.html"
         } else {
-          alert("You must accept before proceeding!");
+          alert("You must accept before proceeding!")
         }
-      });
+      })
       button.addEventListener("mouseover", () => {
-        button.style.boxShadow = "0px 0px 17px 5px #6be7fc";
-      });
+        button.style.boxShadow = "0px 0px 17px 5px #6be7fc"
+      })
       button.addEventListener("mouseout", () => {
-        button.style.boxShadow = "";
-      });
-      const box = document.getElementsByClassName("checkmark")[0];
+        button.style.boxShadow = ""
+      })
+      const box = document.getElementsByClassName("checkmark")[0]
       box.addEventListener("mouseover", () => {
-        box.style.backgroundColor = "white";
-      });
+        box.style.backgroundColor = "white"
+      })
 
       box.addEventListener("mouseout", () => {
-        box.style.backgroundColor = "";
-      });
+        box.style.backgroundColor = ""
+      })
     </script>
   </body>
 </html>
