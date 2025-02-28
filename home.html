@@ -69,6 +69,25 @@
       box.addEventListener("mouseout", () => {
         box.style.backgroundColor = "";
       });
+
+      const gokuCursor = document.createElement("div");
+      gokuCursor.classList.add("goku-cursor");
+      document.body.appendChild(gokuCursor);
+
+      document.addEventListener("mousemove", (e) => {
+        gokuCursor.style.left = `${e.pageX}px`;
+        gokuCursor.style.top = `${e.pageY}px`;
+      });
+
+      document.querySelectorAll("button").forEach((btn) => {
+        btn.addEventListener("mouseenter", () => {
+          gokuCursor.style.display = "block";
+        });
+
+        btn.addEventListener("mouseleave", () => {
+          gokuCursor.style.display = "none";
+        });
+      });
     </script>
   </body>
 </html>
